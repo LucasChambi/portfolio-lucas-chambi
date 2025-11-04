@@ -24,7 +24,7 @@ export default function Home() {
             <div className="basis-64">TAILWINDCSS</div>
             <div className="basis-64">JAVASCRIPT</div>
             <div className="basis-64">REACTJS</div>
-            <div className="basis-64">NEXTJS</div>
+            <div className="basis-64">NEXTJS</div> 
           </div>
         </section>
       </main>
