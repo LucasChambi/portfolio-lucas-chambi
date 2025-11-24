@@ -8,16 +8,16 @@ import { Badge } from '@/components/ui/badge'
 import { ChevronLeft, ChevronRight, Github, Mail, Linkedin } from 'lucide-react'
 
 const skills = [
-  { name: 'PHP', color: 'bg-[#474A8A]', icon: './assets/php.png' },
+  { name: 'HTML', color: 'bg-orange-500', icon: './assets/html.png' },
+  { name: 'CSS', color: 'bg-[#2093E6]', icon: './assets/css.png' },
   { name: 'JavaScript', color: 'bg-[#FFE100] text-black', icon: './assets/js.png' },
-  { name: 'HTML', color: 'bg-[#F1892D]', icon: './assets/html.png' },
-  { name: 'REACT', color: 'bg-[#00C4C1]', icon: './assets/atom.png' },
-  { name: 'TailwindCSS', color: 'bg-[#5FBCFF]', icon: './assets/css.png' },
-  { name: 'CSS', color: 'bg-[#5fbcff]', icon: './assets/css.png' },
+  { name: 'REACT', color: 'bg-[#2C2C2C]', icon: './assets/react.png' },
+  { name: 'TailwindCSS', color: 'bg-slate-950', icon: './assets/tailwindcss.png' },
   { name: 'Next.JS', color: 'bg-black', icon: '▲' },
+  { name: 'PHP', color: 'bg-[#787CB5]', icon: './assets/php.png' },
+  { name: 'MySQL', color: 'bg-[#00758f]', icon: './assets/mysql-database.png' },
   { name: 'GitHub', bgColor: "text-[#fff]", color: 'bg-[#000]', icon: './assets/github.png' },
-  { name: 'Git', color: 'bg-[#C54F00]', icon: './assets/social.png' },
-  { name: 'MySQL', color: 'bg-[#006ECE]', icon: './assets/mysql-database.png' },
+  { name: 'Git', color: 'bg-orange-700', icon: './assets/git-git.png' },
 ]
 const isImage = (icon: string) => {
   if (typeof icon !== 'string') return false;
@@ -29,30 +29,37 @@ const projects = [
     title: 'Art',
     description: 'Um projeto em que cada obra de arte é concebida com esmero e originalidade.',
     image: '/art.png',
-    link: 'https://lokiiigo.github.io/Art/',
-    tags: ['Web Design', 'Art'],
+    link: 'https://github.com/LokiiiGo/art',
+    tags: [/* 'Web Design', 'Arte', */ 'HTML', 'CSS', 'BOOTSTRAP'],
   },
   {
     title: 'Blog de Programação',
     description: 'Site de blog onde usuários sem conhecimento prévio podem aprender sobre Linguagens de Programação e Lógica.',
     image: '/blog.png',
-    link: 'https://github.com/LokiiiGo/Blog',
-    tags: ['Blog', 'Educação'],
+    link: 'https://github.com/LokiiiGo/blog',
+    tags: [/* 'Blog', 'Educação', */ 'PHP', 'BOOTSTRAP'],
   },
   {
     title: 'QuizArt',
     description: 'Um jogo de perguntas sobre Movimentos Artísticos para trabalho de artes.',
     image: '/quizart.png',
-    link: 'https://lokiiigo.github.io/Quiz-Art/',
-    tags: ['Game', 'Educação'],
+    link: 'https://github.com/LokiiiGo/quiz-art',
+    tags: [/* 'Game', 'Educação', */ 'HTML', 'TAILWINDCSS', 'JS'],
   },
   {
     title: 'Restaurant Tagline',
     description: 'Um projeto de criação de site sobre um restaurante com gastronomia totalmente inovadora.',
     image: '/restaurant-tagline.png',
-    link: 'https://lokiiigo.github.io/RestaurantTagline/',
-    tags: ['Restaurant', 'Web Design'],
+    link: 'https://github.com/LokiiiGo/restaurant-tagline',
+    tags: [/* 'Restaurante', 'Web Design', */ 'HTML', 'CSS', 'JS'],
   },
+  {
+    title: 'Cyber Security Intelligence',
+    description: 'Painel de ameaças em tempo real',
+    image: '/cyber.png',
+    link: 'https://github.com/LokiiiGo/cyber-security-intelligence',
+    tags: [/* 'Sistemas de Segurança', 'Cyber',*/ 'Next.JS', 'TailwindCSS', 'REACT'],
+  }
 ]
 
 export default function Portfolio() {
@@ -137,18 +144,22 @@ export default function Portfolio() {
             >
               Desenvolvedor Web
             </motion.p>
+
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
               className="flex gap-4 justify-center"
             >
+              {/* A estrutura de botões está em correção */}
+              {/* 
               <Button size="lg" variant="outline" className="rounded-full px-8 text-lg glass">
                 Ver Projetos
               </Button>
               <Button size="lg" variant="outline" className="rounded-full px-8 text-lg glass">
                 Contato
               </Button>
+              */}
             </motion.div>
           </motion.div>
         </div>
@@ -317,7 +328,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Seção de contato */}
       <section id="contato" className="py-32 px-6">
         <div className="container mx-auto text-center">
           <motion.div
@@ -335,15 +346,18 @@ export default function Portfolio() {
               Estou sempre aberto a novos projetos e colaborações. Entre em contato!
             </p>
             <div className="flex gap-6 justify-center">
+              {/* possível mudança no email */}
               <a href="mailto: lucascalle880@gmail.com">
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="rounded-full gap-2 glass">
-                  <Mail className="w-5 h-5" />
-                  Email
-                </Button>
-              </motion.div>
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" variant="outline" className="rounded-full gap-2 glass">
+                    <Mail className="w-5 h-5" />
+                    Email
+                  </Button>
+                </motion.div>
               </a>
-              <a href="https://www.linkedin.com/in/lucas-chambi-48299435a/" target="_blank" rel="noopener noreferrer">
+
+              {/* LinkedIn */}
+              <a href="https://www.linkedin.com/in/lucas-calle-6677ba333/" target="_blank" rel="noopener noreferrer">
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <Button size="lg" variant="outline" className="rounded-full gap-2 glass">
                     <Linkedin className="w-5 h-5" />
