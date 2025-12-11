@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ChevronLeft, ChevronRight, Github, Mail, Linkedin } from 'lucide-react'
-
+import { Esteban } from 'next/font/google'
 const skills = [
   { name: 'HTML', color: 'bg-orange-500', icon: './assets/html.png' },
   { name: 'CSS', color: 'bg-[#2093E6]', icon: './assets/css.png' },
@@ -30,35 +30,42 @@ const projects = [
     description: 'Um projeto em que cada obra de arte é concebida com esmero e originalidade.',
     image: '/art.png',
     link: 'https://github.com/LokiiiGo/art',
-    tags: [/* 'Web Design', 'Arte', */ 'HTML', 'CSS', 'BOOTSTRAP'],
+    tags: [/* 'Web Design', 'Arte', */ 'html', 'css', 'bootstrap'],
   },
   {
     title: 'Blog de Programação',
-    description: 'Site de blog onde usuários sem conhecimento prévio podem aprender sobre Linguagens de Programação e Lógica.',
+    description: 'Introdução ao Mundo da Programação',
     image: '/blog.png',
     link: 'https://github.com/LokiiiGo/blog',
-    tags: [/* 'Blog', 'Educação', */ 'PHP', 'BOOTSTRAP'],
+    tags: [/* 'Blog', 'Educação', */ 'php', 'bootstrap'],
   },
   {
     title: 'QuizArt',
-    description: 'Um jogo de perguntas sobre Movimentos Artísticos para trabalho de artes.',
+    description: 'Um jogo de perguntas sobre Movimentos Artísticos.',
     image: '/quizart.png',
     link: 'https://github.com/LokiiiGo/quiz-art',
-    tags: [/* 'Game', 'Educação', */ 'HTML', 'TAILWINDCSS', 'JS'],
+    tags: [/* 'Game', 'Educação', */ 'html', 'tailwindcss', 'js'],
   },
   {
     title: 'Restaurant Tagline',
-    description: 'Um projeto de criação de site sobre um restaurante com gastronomia totalmente inovadora.',
+    description: 'Um projeto de criação de site de um restaurante com gastronomia inovadora.',
     image: '/restaurant-tagline.png',
     link: 'https://github.com/LokiiiGo/restaurant-tagline',
-    tags: [/* 'Restaurante', 'Web Design', */ 'HTML', 'CSS', 'JS'],
+    tags: [/* 'Restaurante', 'Web Design', */ 'html', 'css', 'js'],
   },
   {
     title: 'Cyber Security Intelligence',
     description: 'Painel de ameaças em tempo real',
     image: '/cyber.png',
     link: 'https://github.com/LokiiiGo/cyber-security-intelligence',
-    tags: [/* 'Sistemas de Segurança', 'Cyber',*/ 'Next.JS', 'TailwindCSS', 'REACT'],
+    tags: [/* 'Sistemas de Segurança', 'Cyber',*/ 'next.js', 'tailwindcss', 'react'],
+  },
+  {
+    title: "Stokki Life",
+    description: "Gerenciamento de estoque para microempreendedores",
+    image: "/stokki-life.png",
+    link: "https://github.com/stokki-life-tcc",
+    tags: [/* 'Esroque', 'Microepreededor'*/ 'laravel', 'mysql', 'tailwindcss'],
   }
 ]
 
@@ -85,7 +92,7 @@ export default function Portfolio() {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
         className="fixed top-0 left-0 right-0 z-50 glass"
       >
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -102,9 +109,9 @@ export default function Portfolio() {
                 href={`#${item.toLowerCase()}`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, color: 'var(--color-primary)' }}
-                className="text-sm font-medium transition-colors hover:text-primary"
+                transition={{ delay: index * 0.00 }}
+                whileHover={{ scale: 1.5, color: 'var(--color-primary)' }}
+                className="text-sm transition-colors hover:text-primary font-extrabold"
               >
                 {item}
               </motion.a>
@@ -165,7 +172,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Seção - Sobre */}
       <section id="sobre" className="py-32 px-6">
         <div className="container mx-auto">
           <motion.div
@@ -193,7 +200,7 @@ export default function Portfolio() {
             </div>
           </motion.div>
 
-          {/* Skills */}
+          {/* Habilidades */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -209,20 +216,18 @@ export default function Portfolio() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.00 }} /* Ajuste o atraso conforme necessário */
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className={`${skill.color} p-6 rounded-2xl text-center font-bold text-white shadow-2xl cursor-pointer`}
                 >
                   <div className="text-4xl mb-2 flex justify-center items-center">
                     {isImage(skill.icon) ? (
-                      // Adicione w-10 h-10 (ou w-12 h-12 para text-4xl) para dar o tamanho
                       <img
                         src={skill.icon}
                         alt={`${skill.name} icon`}
                         className="w-10 h-10 object-contain"
                       />
                     ) : (
-                      // Caso contrário (emoji/caractere), renderiza como texto
                       skill.icon
                     )}
                   </div>
@@ -234,7 +239,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Seção - Projetos */}
       <section id="projetos" className="py-32 px-6">
         <div className="container mx-auto">
           <motion.div
@@ -263,21 +268,20 @@ export default function Portfolio() {
                   >
                     <div className="aspect-video relative overflow-hidden">
                       <img
-                        src={projects[currentProject].image || "/placeholder.svg"}
+                        src={projects[currentProject].image ?? "/seta-direita.png"}
                         alt={projects[currentProject].title}
-                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="p-12">
                       <div className="flex gap-2 mb-4">
                         {projects[currentProject].tags.map((tag) => (
-                          <Badge key={tag} variant="outline" className="text-sm">
+                          <Badge key={tag} variant="outline" className="text-1xl mb-4">
                             {tag}
                           </Badge>
                         ))}
                       </div>
-                      <h3 className="text-4xl font-bold mb-4">{projects[currentProject].title}</h3>
-                      <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                      <h3 className="text-3xl font-bold mb-4">{projects[currentProject].title}</h3>
+                      <p className="text-1xl text-muted-foreground mb-8 leading-relaxed">
                         {projects[currentProject].description}
                       </p>
                       <Button
@@ -294,22 +298,23 @@ export default function Portfolio() {
                 </div>
               </Card>
 
-              {/* Navigation Buttons */}
+              {/* Botões de Navegação */}
               <Button
                 onPress={prevProject}
-                size="lg"
+                size="lx"
                 variant="outline"
-                className="absolute top-1/2 -left-6 -translate-y-1/2 rounded-full w-12 h-12 glass z-10"
+                className="absolute top-1/2 -left-6 bg-black -translate-y-1/2 rounded-full w-8 h-8 glass z-10"
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-5 h-5" />
               </Button>
+              
               <Button
                 onPress={nextProject}
-                size="lg"
+                size="lx"
                 variant="outline"
-                className="absolute top-1/2 -right-6 -translate-y-1/2 rounded-full w-12 h-12 glass z-10"
+                className="absolute top-1/2 -right-6 bg-black -translate-y-1/2 rounded-full w-8 h-8 glass z-10"
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-5 h-5" />
               </Button>
             </div>
 
@@ -319,7 +324,7 @@ export default function Portfolio() {
                 <button
                   key={index}
                   onClick={() => setCurrentProject(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentProject ? 'bg-primary w-12' : 'bg-muted'
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentProject ? 'bg-primary w-12' : 'bg-muted'
                     }`}
                 />
               ))}
@@ -345,12 +350,29 @@ export default function Portfolio() {
             <p className="text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
               Estou sempre aberto a novos projetos e colaborações. Entre em contato!
             </p>
-            <div className="flex gap-6 justify-center">
+            {/* Ícone de Perfil Adicionado Aqui */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-12" 
+            >
+              {/* Alteração de foto em breve */}
+              <img
+                src="/foto-lucas-chambi.jfif"
+                alt="Foto de Perfil de Lucas Bruno Calle Chambi"
+                className="w-60 h-60 rounded-2xl object-cover mx-auto border-4 border-primary shadow-lg"
+              />
+            </motion.div>
+            {/* Fim do Ícone de Perfil */}
+
+            <div className="flex gap-2 justify-center">
               {/* possível mudança no email */}
               <a href="mailto: lucascalle880@gmail.com">
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <Button size="lg" variant="outline" className="rounded-full gap-2 glass">
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-4 h-4" />
                     Email
                   </Button>
                 </motion.div>
@@ -360,8 +382,18 @@ export default function Portfolio() {
               <a href="https://www.linkedin.com/in/lucas-calle-6677ba333/" target="_blank" rel="noopener noreferrer">
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <Button size="lg" variant="outline" className="rounded-full gap-2 glass">
-                    <Linkedin className="w-5 h-5" />
+                    <Linkedin className="w-4 h-4" />
                     LinkedIn
+                  </Button>
+                </motion.div>
+              </a>
+              
+              {/* Github */}
+              <a href="https://github.com/LokiiiGo" target="_blank" rel="noopener noreferrer">
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" variant="outline" className="rounded-full gap-2 glass">
+                    <Github className="w-4 h-4" />
+                    Github
                   </Button>
                 </motion.div>
               </a>
@@ -373,8 +405,8 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-border/50">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p className="text-sm">
-            &copy; 2025 Lucas Bruno Calle Chambi.
+          <p className="text-2xl">
+            &copy; Portifólio - Lucas Chambi. Todos os Direitos Reservados
           </p>
         </div>
       </footer>
